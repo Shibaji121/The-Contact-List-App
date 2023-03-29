@@ -10,16 +10,15 @@ body {
 /* Header Styles */
 header {
   display: flex;
-  width: 50vw;
-  height: 30vh;
+  width: 42vw;
+  height: 18vh;
   margin: auto;
-  justify-content: space-evenly;
   align-items: center;
   -webkit-text-fill-color: crimson;
 }
 header img {
-  height: 23vh;
+  height: 17vh;
 }
 header h1 {
-  font-size: 4rem;
+  font-size: 3em;
 }
