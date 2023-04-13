@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import AddContact from "./AddContact";
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -21,6 +22,35 @@ function App() {
       });
   }, []);
 
+  const addNewContact = async (username, phone) => {
+    let id = Date.now();
+    const url = "https://jsonplaceholder.typicode.com/users";
+    await fetch(url, {
+      method: "POST",
+      body: JSON.stringify({
+        username,
+        phone,
+        id,
+      }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
+      .then((response) => response.json())
+      .then((json) => console.log(json));
+    let updatedUserList = [{ username, phone, id }].concat(users);
+    setUsers(updatedUserList);
+  };
+
+  const deleteContact = (id) => {
+    const url = `https://jsonplaceholder.typicode.com/users/${id}`;
+    fetch(url, {
+      method: "DELETE",
+    });
+    let updatedUserList = users.filter((user) => user.id !== id);
+    setUsers(updatedUserList);
+  };
+
   return (
     <div className="App">
       <header>
@@ -40,9 +70,7 @@ function App() {
                   alt="profile-img"
                 />
                 <div className="user-name">{user.username}</div>
-                <div className="phone-number">
-                  {user.phone.slice(0, user.phone.lastIndexOf(" "))}
-                </div>
+                <div className="phone-number">{user.phone.split(" ")[0]}</div>
               </div>
               <div className="right-container">
                 <img
@@ -54,12 +82,14 @@ function App() {
                   src="https://cdn-icons-png.flaticon.com/512/5676/5676146.png"
                   alt="delete-symbol"
                   className="delete-btn"
+                  onClick={() => deleteContact(user.id)}
                 />
               </div>
             </div>
           );
         })}
       </div>
+      <AddContact addContact={addNewContact} />
     </div>
   );
 }

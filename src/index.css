@@ -58,3 +58,52 @@ header h1 {
   height: fit-content;
   cursor: pointer;
 }
+
+/* Add user styles */
+.add-user-btn {
+  position: fixed;
+  height: 10rem;
+  width: 10rem;
+  top: 34rem;
+  left: 73rem;
+  cursor: pointer;
+}
+#add-user {
+  position: fixed;
+  top: 15rem;
+  left: 37rem;
+  height: 25rem;
+  width: 30rem;
+  border: 1px solid black;
+  background: white;
+  border-radius: 30px;
+  text-align: center;
+  display: none;
+}
+#add-user div {
+  padding: 3rem;
+}
+#add-user label {
+  font-size: 3rem;
+  font-weight: 600;
+  color: crimson;
+}
+#add-user input {
+  width: 20rem;
+  height: 3rem;
+  border-radius: 30px;
+  font-size: 2rem;
+  padding: 0px 16px;
+  margin-top: 30px;
+}
+#add-user button {
+  height: 4rem;
+  width: 10rem;
+  margin-top: 1rem;
+  font-size: 20px;
+  background: limegreen;
+  border-radius: 22px;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+}
