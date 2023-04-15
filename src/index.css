@@ -59,6 +59,19 @@ header h1 {
   cursor: pointer;
 }
 
+/* Update User input box */
+.update-user,
+.update-phone {
+  width: 12rem;
+  height: 2rem;
+  background: transparent;
+  font-size: 1.5rem;
+  padding: 0 10px;
+  border-radius: 20px;
+  box-shadow: -1px 6px 18px 0px #3e272373;
+  margin: 0 1rem;
+}
+
 /* Add user styles */
 .add-user-btn {
   position: fixed;
