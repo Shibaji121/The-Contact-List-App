@@ -2,17 +2,15 @@ import React, { useState } from "react";
 
 function UsersList(props) {
   const [editMode, setEditMode] = useState(false);
-  const [userName, setUserName] = useState("");
-  const [phone, setPhone] = useState("");
+  const [userName, setUserName] = useState(props.name);
+  const [phone, setPhone] = useState(props.phone);
   const [id, setId] = useState("");
 
   const onClickUpdateSubmit = () => {
-    if (userName !== "" && phone !== "") {
-      console.log(userName);
-      console.log(phone);
+    if (userName !== props.name || phone !== props.phone) {
       props.updateContact(userName, phone, id);
     } else {
-      alert("Please Enter both field correctly");
+      alert("Nothing is going to be Changed...");
     }
     setEditMode(false);
   };
@@ -29,16 +27,16 @@ function UsersList(props) {
             <input
               type="text"
               className="update-user"
-              placeholder="Enter User Name"
+              placeholder="Enter New Name"
+              value={userName}
               onChange={(e) => setUserName(e.target.value)}
-              required
             ></input>
             <input
-              type="number"
+              type="text"
               className="update-phone"
               placeholder="Enter Contact"
+              value={phone}
               onChange={(e) => setPhone(e.target.value)}
-              required
             ></input>
           </div>
           <div className="right-container">
