@@ -14,7 +14,11 @@ function AddContact(props) {
   };
 
   const onClickSubmit = () => {
-    props.addContact(userName, phone);
+    if (userName !== "" && phone !== "") {
+      props.addContact(userName, phone);
+    } else {
+      alert("Please Enter both field correctly");
+    }
     ref.current.style.display = "none";
   };
 
