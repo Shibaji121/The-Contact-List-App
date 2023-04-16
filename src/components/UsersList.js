@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 
 function UsersList(props) {
-  const [editMode, setEditMode] = useState(false);
-  const [userName, setUserName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [id, setId] = useState("");
+  const [editMode, setEditMode] = useState(false); // state for check the edit mode
+  const [userName, setUserName] = useState(""); //state to store the new entered user name
+  const [phone, setPhone] = useState(""); //state to store the new entered phone number
+  const [id, setId] = useState(""); //state to store the id of updating COntact
 
+  // This is for update the contact after clicking submit button
   const onClickUpdateSubmit = () => {
     if (userName !== props.name || phone !== props.phone) {
       props.updateContact(userName, phone, id);
@@ -15,6 +16,7 @@ function UsersList(props) {
     setEditMode(false);
   };
 
+  // return the contact List JSX according to edit mode
   return (
     <>
       {editMode ? (

@@ -2,9 +2,10 @@ import React, { useRef, useState } from "react";
 
 function AddContact(props) {
   const ref = useRef();
-  const [userName, setUserName] = useState("");
-  const [phone, setPhone] = useState("");
+  const [userName, setUserName] = useState(""); //state to store the new Contact user name
+  const [phone, setPhone] = useState(""); //state to store the new Contact phone number
 
+  // This is for open the Add User Dialog box when click on Plus button
   const openAddUser = () => {
     if (ref.current.style.display === "block") {
       ref.current.style.display = "none";
@@ -13,6 +14,7 @@ function AddContact(props) {
     }
   };
 
+  // This is for submit the Newly entered the username and Phone number
   const onClickSubmit = () => {
     if (userName !== "" && phone !== "") {
       props.addContact(userName, phone);
@@ -22,6 +24,7 @@ function AddContact(props) {
     ref.current.style.display = "none";
   };
 
+  //return the JSX for Add User dialog box
   return (
     <>
       <img
@@ -32,7 +35,7 @@ function AddContact(props) {
       />
       <div id="add-user" ref={ref}>
         <div>
-          <label>Enter The Details</label> <br />
+          <label>Enter The Contact Details</label> <br />
           <input
             type="text"
             id="user-name"

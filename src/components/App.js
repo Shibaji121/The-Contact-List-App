@@ -6,6 +6,7 @@ import Loading from "./Loading";
 function App() {
   const [users, setUsers] = useState([]);
 
+  // function to fetch all Contact user details
   useEffect(() => {
     const url = "https://jsonplaceholder.typicode.com/users";
     fetch(url)
@@ -24,6 +25,7 @@ function App() {
       });
   }, []);
 
+  // This is for Add new Contact details
   const addNewContact = async (username, phone) => {
     let id = Date.now();
     const url = "https://jsonplaceholder.typicode.com/users";
@@ -44,6 +46,7 @@ function App() {
     setUsers(updatedUserList);
   };
 
+  // This is for Delete Contact
   const deleteContact = (id) => {
     const url = `https://jsonplaceholder.typicode.com/users/${id}`;
     fetch(url, {
@@ -53,6 +56,7 @@ function App() {
     setUsers(updatedUserList);
   };
 
+  // This is for Update the existing contact detail
   const updateContact = (username, phone, id) => {
     const url = `https://jsonplaceholder.typicode.com/users/${id}`;
     fetch(url, {
@@ -78,6 +82,7 @@ function App() {
     setUsers(updatedUsersList);
   };
 
+  // return the JSX
   return (
     <div className="App">
       <header>
