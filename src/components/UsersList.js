@@ -2,8 +2,8 @@ import React, { useState } from "react";
 
 function UsersList(props) {
   const [editMode, setEditMode] = useState(false);
-  const [userName, setUserName] = useState(props.name);
-  const [phone, setPhone] = useState(props.phone);
+  const [userName, setUserName] = useState("");
+  const [phone, setPhone] = useState("");
   const [id, setId] = useState("");
 
   const onClickUpdateSubmit = () => {
@@ -72,6 +72,8 @@ function UsersList(props) {
               onClick={() => {
                 setEditMode(true);
                 setId(props.id);
+                setUserName(props.name);
+                setPhone(props.phone);
               }}
             />
             <img
