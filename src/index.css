@@ -91,6 +91,7 @@ header h1 {
   background: white;
   border-radius: 30px;
   text-align: center;
+  box-shadow: -6px 4px 11px 8px gray;
   display: none;
 }
 #add-user div {
